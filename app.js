@@ -11,6 +11,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.set("view engine", "ejs");
 
+app.use("/owners", ownersRouter);
+app.use("/products", productRouter);
+app.use("/user", userRouter);
+
 const PORT = 3000;
 
 app.get("/", (req, res) => {
