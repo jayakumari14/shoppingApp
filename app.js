@@ -1,6 +1,7 @@
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const path = require("path");
+const db = require("./config/mongoose-connection");
 
 const app = express();
 
@@ -17,5 +18,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`listening to port ${PORT}`);
+  console.log(`listening to port ${PORT}...`);
 });
