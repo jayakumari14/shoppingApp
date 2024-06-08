@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
+const dbgr = require("debug")("development:mongoose");
+const config = require("config");
 
 mongoose
-  .connect("mongodb://localhost:27017/shoppingApp")
+  .connect(`${config.get("MONGODB_URI")}/shoppingApp`)
   .then(() => {
-    console.log("connected to database");
+    dbgr("connected to database");
   })
   .catch((err) => {
-    console.log("error in connecting to database", err);
+    dbgr("error in connecting to database", err);
   });
 
 module.exports = mongoose.connection;
